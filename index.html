@@ -43,7 +43,7 @@
         const ul = document.createElement('ul');
         departures.forEach(d => {
           const li = document.createElement('li');
-          li.textContent = `Linka ${d.linka} – ${d.cas} – Vozidlo ${d.vozidlo}`;
+          li.textContent = `Linka ${d.linka} – ${d.cas};
           ul.appendChild(li);
         });
         container.appendChild(ul);
