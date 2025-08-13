@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Najbližšie odchody</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #2c3e50; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 8px; background: #ecf0f1; margin: 5px 0; cursor: pointer; border-radius: 4px; }
+    li:hover { background: #bdc3c7; }
+    #departures-container { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Zoznam zastávok</h1>
+  <ul id="stops-list"></ul>
+
+  <div id="departures-container"></div>
+
+  <script>
+    async function loadStops() {
+      const res = await fetch('stops.json');
+      const stops = await res.json();
+      const ul = document.getElementById('stops-list');
+      stops.forEach(stop => {
+        const li = document.createElement('li');
+        li.textContent = stop.name;
+        li.addEventListener('click', () => showDepartures(stop.id, stop.name));
+        ul.appendChild(li);
+      });
+    }
+
+    async function showDepartures(id, name) {
+      const res = await fetch('departures.json');
+      const data = await res.json();
+      const departures = data[id] || [];
+      const container = document.getElementById('departures-container');
+      container.innerHTML = `<h2>Odchody zo zastávky: ${name}</h2>`;
+      if (departures.length === 0) {
+        container.innerHTML += '<p>Žiadne odchody.</p>';
+      } else {
+        const ul = document.createElement('ul');
+        departures.forEach(d => {
+          const li = document.createElement('li');
+          li.textContent = `Linka ${d.linka} – ${d.cas}`;
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadStops);
+  </script>
+</body>
+</html>
