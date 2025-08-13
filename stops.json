@@ -1,5 +1,5 @@
 [
-  { "1": "hlavna_stn", "name": "Hlavná stanica" },
-  { "2": "vysehradska", "name": "Vyšehradská" },
-  { "95": "albert_hm", "name": "Albert Hypermarket" }
+  { "": "hlavna_stn", "name": "Hlavná stanica" },
+  { "": "vysehradska", "name": "Vyšehradská" },
+  { "": "albert_hm", "name": "Albert Hypermarket" }
 ]
