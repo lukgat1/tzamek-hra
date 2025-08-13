@@ -3,9 +3,9 @@
     { "linka": "1", "cas": "14:05", "vozidlo": "Škoda 15trM #9898" },
     { "linka": "5", "cas": "12:12" }
   ],
-  "hlavni_nadrazi": [
-    { "linka": "2", "cas": "12:03" },
-    { "linka": "N4", "cas": "12:15" }
+  "vysehradska": [
+    { "linka": "59", "cas": "19:03", "vozidlo": "Škoda 15trM #9898" },
+    { "linka": "95", "cas": "14:15", "vozidlo": "Škoda 15trM #9898" }
   ],
   "albert_hm": [
     { "linka": "7", "cas": "12:10" }
